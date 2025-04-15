@@ -31,6 +31,27 @@
             bindings = <&kp LEFT_ALT &kp SPACE>;
             label = "AI";
         };
+
+        cut: cut {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_COMMAND &kp X>;
+            label = "CUT";
+        };
+
+        paste: paste {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_COMMAND &kp V>;
+            label = "PASTE";
+        };
+
+        copy: copy {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_COMMAND &kp C>;
+            label = "COPY";
+        };
     };
 
     keymap {
@@ -61,10 +82,10 @@
 
             display-name = "Lower";
             bindings = <
-&kp LEFT_COMMAND  &spotlight       &AI         &ext_power EP_ON  &bt BT_CLR_ALL  &bt BT_NXT     &kp N7        &kp N8        &kp N9            &kp ASTERISK  &kp SLASH   &kp RIGHT_ALT
-&kp LEFT_SHIFT    &kp PRINTSCREEN  &selectall  &kp UP_ARROW      &trans          &kp K_CUT      &kp NUMBER_4  &kp N5        &kp NUMBER_6      &kp PLUS      &kp MINUS   &trans
-&kp K_COPY        &trans           &kp LEFT    &kp DOWN          &kp RIGHT       &kp K_PASTE    &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3      &kp N0        &kp PERIOD  &kp EQUAL
-                                               &kp LEFT_ALT      &trans          &kp SPACE      &kp RET       &trans        &kp LEFT_COMMAND
+&kp LEFT_COMMAND  &trans           &trans      &ext_power EP_ON  &bt BT_CLR_ALL  &bt BT_NXT    &kp N7        &kp N8        &kp N9            &kp ASTERISK  &kp SLASH   &kp RIGHT_ALT
+&kp LEFT_SHIFT    &kp PRINTSCREEN  &selectall  &kp UP_ARROW      &trans          &cut          &kp NUMBER_4  &kp N5        &kp NUMBER_6      &kp PLUS      &kp MINUS   &trans
+&copy             &trans           &kp LEFT    &kp DOWN          &kp RIGHT       &paste        &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3      &kp N0        &kp PERIOD  &kp EQUAL
+                                               &kp LEFT_ALT      &trans          &kp SPACE     &kp RET       &trans        &kp LEFT_COMMAND
             >;
         };
 
@@ -77,10 +98,10 @@
 
             display-name = "Raise";
             bindings = <
-&kp TAB    &kp EXCL  &kp AT    &kp HASH      &kp DLLR   &kp PRCNT    &kp CARET  &kp AMPS   &kp ASTERISK      &kp LPAR          &kp RPAR           &kp BACKSLASH
-&kp LCTRL  &trans    &trans    &kp UP_ARROW  &trans     &trans       &kp MINUS  &kp EQUAL  &kp LBKT          &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp TILDE
-&kp LSHFT  &trans    &kp LEFT  &kp DOWN      &kp RIGHT  &trans       &kp UNDER  &kp PLUS   &kp LBRC          &kp LEFT_BRACE    &kp RIGHT_BRACE    &kp TILDE
-                               &kp LEFT_ALT  &trans     &kp SPACE    &kp RET    &trans     &kp LEFT_COMMAND
+&kp TAB    &kp EXCL  &kp AT    &kp HASH      &kp DLLR   &kp PRCNT            &kp CARET  &kp AMPS   &kp ASTERISK      &kp LPAR          &kp RPAR           &kp BACKSLASH
+&kp LCTRL  &trans    &trans    &kp UP_ARROW  &trans     &kp K_VOLUME_UP      &kp MINUS  &kp EQUAL  &kp LBKT          &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp TILDE
+&kp LSHFT  &trans    &kp LEFT  &kp DOWN      &kp RIGHT  &kp K_VOLUME_DOWN    &kp UNDER  &kp PLUS   &kp LBRC          &kp LEFT_BRACE    &kp RIGHT_BRACE    &kp TILDE
+                               &kp LEFT_ALT  &trans     &kp SPACE            &kp RET    &trans     &kp LEFT_COMMAND
             >;
         };
 
